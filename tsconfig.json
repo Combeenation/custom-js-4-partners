@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [ "dom", "es5", "scripthost", "es2018" ],
+    "checkJs": true,
+    "allowJs": true,
+    "outDir": "./dist",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+  },
+  "include": [
+    "./src/**/*",
+  ]
+}
