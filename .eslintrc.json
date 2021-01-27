@@ -35,5 +35,13 @@
     "Ext": true,
     "SDVApp": true,
     "Uint8Array": true
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/typings/**"],
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    }
+  ]
 }

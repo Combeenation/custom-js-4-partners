@@ -1,8 +1,4 @@
-import { ShadowGenerator } from '@babylonjs/core/Lights/Shadows/shadowGenerator';
-import { MeshBuilder } from '@babylonjs/core/Meshes/meshBuilder';
-import { DirectionalLight } from '@babylonjs/core/Lights/directionalLight';
-import { ShadowOnlyMaterial } from '@babylonjs/materials/shadowOnly';
-import { Color4, Vector3 } from '@combeenation/3d-viewer';
+import { Color4 } from '@combeenation/3d-viewer';
 import { CmpUtils } from '@combeenation/custom-js-utils';
 import { CmpNames, InstanceNames, ViewerParameters, CameraPlacements } from './constants';
 
@@ -74,11 +70,6 @@ function _setSceneSettings(viewer) {
   camera.minZ = 0;
   camera.panningDistanceLimit = 0.6;
   camera.upperBetaLimit = 1.7;
-
-  // Add light to scene & create gound plane for shadows
-  let light = new DirectionalLight('directionalLight', new Vector3(0.5, -1, 0.5), viewer.scene);
-  light.intensity = 0.5;
-  _createGroundPlane(viewer.scene, light);
 }
 
 /**
@@ -92,26 +83,4 @@ function _setCameraPos(viewer, animate) {
   const camPlacementName = isHeight100 ? CameraPlacements.Height100 : CameraPlacements.Height60;
   const animation = animate ? { ease: 'Power3.easeInOut', duration: 0.8 } : undefined;
   viewer.moveActiveCameraTo(camPlacementName, animation);
-}
-
-/**
- * Define which meshes cast a shadow and create a plane on which the shadow is then
- *
- * @param {Scene} scene
- * @param {DirectionalLight} light
- */
-function _createGroundPlane(scene, light) {
-  const shadowGenerator = new ShadowGenerator(1024, light);
-  const renderList = shadowGenerator.getShadowMap().renderList;
-  scene.meshes.forEach(mesh => {
-    renderList.push(mesh);
-    shadowGenerator.addShadowCaster(mesh);
-  });
-
-  shadowGenerator.useExponentialShadowMap = true;
-
-  const ground = MeshBuilder.CreatePlane('groundMaterial', { width: 50, height: 50 }, scene);
-  ground.rotation.x = Math.PI / 2;
-  ground.receiveShadows = true;
-  ground.material = new ShadowOnlyMaterial('groundMaterial', scene);
 }
