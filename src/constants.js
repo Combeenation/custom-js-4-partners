@@ -5,6 +5,7 @@ export class CtrlNames {
 }
 
 // prettier-ignore
+// Note: Always keep in sync with component "CustomJSCmps"
 export class CmpNames {
   static get ModelGlbUrl()   { return 'ModelGlbUrl'; }
   static get ModelEnvUrl()   { return 'ModelEnvUrl'; }
