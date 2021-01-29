@@ -1,7 +1,7 @@
 import { CtrlUtils } from "@combeenation/custom-js-utils";
 import { Viewer } from "@combeenation/3d-viewer";
 import { createSpec } from "./spec";
-import { initSceneManager } from "./viewer-mgr";
+import { initSceneManager } from "./scene-mgr";
 import { CtrlNames } from "./constants";
 
 export async function bootstrapViewer() {

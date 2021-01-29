@@ -1,5 +1,5 @@
 {
-	"name": "viewer-demo-customjs",
+	"name": "produkter-customjs",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
@@ -35,7 +35,7 @@
 		"webpack-notifier": "^1.6.0"
 	},
 	"dependencies": {
-		"@combeenation/3d-viewer": "1.2.0-rc4",
+		"@combeenation/3d-viewer": "1.2.0-rc5",
 		"@combeenation/custom-js-utils": "2.0.0-rc5",
 		"whatwg-fetch": "^3.0.0"
 	}
