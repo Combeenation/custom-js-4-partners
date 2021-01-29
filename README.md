@@ -23,7 +23,7 @@ Info about commonly used abbreviations in this project:
   // 
   // The client basically needs such information for cmps which are used in SigSlos and which are used in custom JS.
   // 
-  // Whilst the server does now which cmps are used in SigSlos and can automatically optimize this, he has no way of
+  // Whilst the server does know which cmps are used in SigSlos and can automatically optimize this, he has no way of
   // knowing which cmps are used in custom JS. Therefore we need to give him this information manually using this cmp.
   // 
   // By default the server only sends the result value of the listet cmps to the client. If more info like the list of
