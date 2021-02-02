@@ -35,8 +35,8 @@
 		"webpack-notifier": "^1.6.0"
 	},
 	"dependencies": {
-		"@combeenation/3d-viewer": "1.2.0-rc5",
-		"@combeenation/custom-js-utils": "2.0.0-rc5",
+		"@combeenation/3d-viewer": "1.2.0",
+		"@combeenation/custom-js-utils": "2.0.0",
 		"whatwg-fetch": "^3.0.0"
 	}
 }
