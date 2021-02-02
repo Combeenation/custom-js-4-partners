@@ -1,5 +1,5 @@
 import { CmpUtils } from "@combeenation/custom-js-utils";
-import { CmpNames, InstanceNames, VariantNames, ViewerParameters, CameraPlacements } from "./constants";
+import { CmpNames, InstanceNames, VariantNames, ViewerParameters, CameraPlacements, Animations } from "./constants";
 
 /**
  * @return {StructureJson}
@@ -33,6 +33,12 @@ export function createSpec() {
         [CameraPlacements.Height100]: {
           position: "(-0.5034608339970097, 0.9162828478182772, -1.4399870356436006)",
           target: "(0.11190323895696523, 0.47328146232722085, -0.016705972101674342)",
+        },
+      },
+      animations: {
+        [Animations.DefaultCameraAnimation]: {
+          ease: 'Power3.easeInOut',
+          duration: 0.8,
         },
       },
     },

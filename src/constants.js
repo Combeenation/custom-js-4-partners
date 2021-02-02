@@ -56,3 +56,8 @@ export class CameraPlacements {
   static get Height60()  { return 'Height60'; }
   static get Height100() { return 'Height100'; }
 }
+
+// prettier-ignore
+export class Animations {
+  static get DefaultCameraAnimation() { return 'DefaultCameraAnimation'; }
+}

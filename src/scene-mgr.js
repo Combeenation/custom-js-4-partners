@@ -1,6 +1,6 @@
 import { Color4 } from '@combeenation/3d-viewer';
 import { CmpUtils } from '@combeenation/custom-js-utils';
-import { CmpNames, InstanceNames, ViewerParameters, CameraPlacements } from './constants';
+import { CmpNames, InstanceNames, ViewerParameters, CameraPlacements, Animations } from './constants';
 
 /** @type {ViewerParamsRecord} */
 let _prevViewerParams = undefined;
@@ -81,6 +81,5 @@ function _setSceneSettings(viewer) {
 function _setCameraPos(viewer, animate) {
   const isHeight100 = CmpUtils.getRecordCmpKeyValue(CmpNames.Bin3DHeight) === '100';
   const camPlacementName = isHeight100 ? CameraPlacements.Height100 : CameraPlacements.Height60;
-  const animation = animate ? { ease: 'Power3.easeInOut', duration: 0.8 } : undefined;
-  viewer.moveActiveCameraTo(camPlacementName, animation);
+  viewer.moveActiveCameraTo(camPlacementName, Animations.DefaultCameraAnimation);
 }
