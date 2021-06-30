@@ -66,6 +66,17 @@ export function createSpec() {
             rotation: "( 0, 0, 0 )",
           },
         },
+        {
+          name: InstanceNames.Bin_Graphics_Instance,
+          variant: `${VariantNames.AllBins}.${VariantNames.Bin_Graphics}`,
+          lazy: false,
+          parameters: {
+            visible: true,
+            scaling: '( 1, 1, -1 )',
+            position: '( 0, 0, 0 )',
+            rotation: '( 0, 0, 0 )',
+          },
+        },
       ],
     },
     parameterDeclaration: {
@@ -77,6 +88,8 @@ export function createSpec() {
       [ViewerParameters.CapTypeIs1]: { type: "boolean" },
       [ViewerParameters.CapTypeIs2]: { type: "boolean" },
       [ViewerParameters.CapTypeIs3]: { type: "boolean" },
+      [ViewerParameters.GraphicPosZ]: { type: 'number' },
+      [ViewerParameters.GraphicPosY]: { type: 'number' },
     },
     parameters: {
       [ViewerParameters.TopColor]: "#ABABAB",
@@ -87,6 +100,8 @@ export function createSpec() {
       [ViewerParameters.CapTypeIs1]: false,
       [ViewerParameters.CapTypeIs2]: false,
       [ViewerParameters.CapTypeIs3]: true,
+      [ViewerParameters.GraphicPosZ]: 0,
+      [ViewerParameters.GraphicPosY]: 0,
     },
     variants: {
       [VariantNames.AllBins]: {
@@ -151,6 +166,25 @@ export function createSpec() {
               CapType2: ["__root__.top.30_40_cl"],
               CapType3: ["__root__.top.30_40_re"],
               Text: ["__root__.top.txt_30_40"],
+            },
+          },
+
+          [VariantNames.Bin_Graphics]: {
+            parameters: {
+              'GraphicPanel.position': '( 0, ${' + ViewerParameters.GraphicPosY + '}, ${' + ViewerParameters.GraphicPosZ + '} )',
+            },
+            elements: {
+              GraphicPanel: {
+                paths: {
+                  include: ['__root__.bin.Paintable'],
+                },
+                paintables: {
+                  LogoPaintable: {
+                    path: '__root__.bin.Paintable',
+                    textureOptions: 512,
+                  },
+                },
+              },
             },
           },
         },

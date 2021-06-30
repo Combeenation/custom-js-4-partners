@@ -17,4 +17,6 @@ interface ViewerParamsRecord {
   CapTypeIs1: boolean;
   CapTypeIs2: boolean;
   CapTypeIs3: boolean;
+  GraphicPosZ: number;
+  GraphicPosY: number;
 }
