@@ -1,3 +1,4 @@
+import { Parameter } from "@combeenation/3d-viewer";
 import { CmpUtils } from "@combeenation/custom-js-utils";
 import { CmpNames, InstanceNames, VariantNames, ViewerParameters, CameraPlacements, Animations } from "./constants";
 
@@ -110,24 +111,24 @@ export function createSpec() {
         variants: {
           [VariantNames.Bin_20_30]: {
             parameters: {
-              "Bin60.visible": "${" + ViewerParameters.HeightIs60 + "}",
-              "Bin100.visible": "${" + ViewerParameters.HeightIs100 + "}",
-              "Bin60.material.color": "${" + ViewerParameters.BottomColor + "}",
-              "Bin100.material.color": "${" + ViewerParameters.BottomColor + "}",
+              [`Bin60.${Parameter.VISIBLE}`]: "${" + ViewerParameters.HeightIs60 + "}",
+              [`Bin100${Parameter.VISIBLE}`]: "${" + ViewerParameters.HeightIs100 + "}",
+              [`Bin60.${Parameter.MATERIAL_COLOR}`]: "${" + ViewerParameters.BottomColor + "}",
+              [`Bin100.${Parameter.MATERIAL_COLOR}`]: "${" + ViewerParameters.BottomColor + "}",
 
-              "CapType1.position": "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
-              "CapType2.position": "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
-              "CapType3.position": "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
+              [`CapType1.${Parameter.POSITION}`]: "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
+              [`CapType2.${Parameter.POSITION}`]: "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
+              [`CapType3.${Parameter.POSITION}`]: "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
 
-              "CapType1.material.color": "${" + ViewerParameters.TopColor + "}",
-              "CapType2.material.color": "${" + ViewerParameters.TopColor + "}",
-              "CapType3.material.color": "${" + ViewerParameters.TopColor + "}",
+              [`CapType1.${Parameter.MATERIAL_COLOR}`]: "${" + ViewerParameters.TopColor + "}",
+              [`CapType2.${Parameter.MATERIAL_COLOR}`]: "${" + ViewerParameters.TopColor + "}",
+              [`CapType3.${Parameter.MATERIAL_COLOR}`]: "${" + ViewerParameters.TopColor + "}",
 
-              "CapType1.visible": "${" + ViewerParameters.CapTypeIs1 + "}",
-              "CapType2.visible": "${" + ViewerParameters.CapTypeIs2 + "}",
-              "CapType3.visible": "${" + ViewerParameters.CapTypeIs3 + "}",
+              [`CapType1${Parameter.VISIBLE}`]: "${" + ViewerParameters.CapTypeIs1 + "}",
+              [`CapType2${Parameter.VISIBLE}`]: "${" + ViewerParameters.CapTypeIs2 + "}",
+              [`CapType3${Parameter.VISIBLE}`]: "${" + ViewerParameters.CapTypeIs3 + "}",
 
-              "Text.position": "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
+              [`Text.${Parameter.POSITION}`]: "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
             },
             elements: {
               Bin60: ["__root__.bin.20_30_60"],
@@ -140,24 +141,24 @@ export function createSpec() {
           },
           [VariantNames.Bin_30_40]: {
             parameters: {
-              "Bin60.visible": "${" + ViewerParameters.HeightIs60 + "}",
-              "Bin100.visible": "${" + ViewerParameters.HeightIs100 + "}",
-              "Bin60.material.color": "${" + ViewerParameters.BottomColor + "}",
-              "Bin100.material.color": "${" + ViewerParameters.BottomColor + "}",
+              [`Bin60${Parameter.VISIBLE}`]: "${" + ViewerParameters.HeightIs60 + "}",
+              [`Bin100${Parameter.VISIBLE}`]: "${" + ViewerParameters.HeightIs100 + "}",
+              [`Bin60.${Parameter.MATERIAL_COLOR}`]: "${" + ViewerParameters.BottomColor + "}",
+              [`Bin100.${Parameter.MATERIAL_COLOR}`]: "${" + ViewerParameters.BottomColor + "}",
 
-              "CapType1.position": "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
-              "CapType2.position": "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
-              "CapType3.position": "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
+              [`CapType1.${Parameter.POSITION}`]: "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
+              [`CapType2.${Parameter.POSITION}`]: "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
+              [`CapType3.${Parameter.POSITION}`]: "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
 
-              "CapType1.material.color": "${" + ViewerParameters.TopColor + "}",
-              "CapType2.material.color": "${" + ViewerParameters.TopColor + "}",
-              "CapType3.material.color": "${" + ViewerParameters.TopColor + "}",
+              [`CapType1.${Parameter.MATERIAL_COLOR}`]: "${" + ViewerParameters.TopColor + "}",
+              [`CapType2.${Parameter.MATERIAL_COLOR}`]: "${" + ViewerParameters.TopColor + "}",
+              [`CapType3.${Parameter.MATERIAL_COLOR}`]: "${" + ViewerParameters.TopColor + "}",
 
-              "CapType1.visible": "${" + ViewerParameters.CapTypeIs1 + "}",
-              "CapType2.visible": "${" + ViewerParameters.CapTypeIs2 + "}",
-              "CapType3.visible": "${" + ViewerParameters.CapTypeIs3 + "}",
+              [`CapType1${Parameter.VISIBLE}`]: "${" + ViewerParameters.CapTypeIs1 + "}",
+              [`CapType2${Parameter.VISIBLE}`]: "${" + ViewerParameters.CapTypeIs2 + "}",
+              [`CapType3${Parameter.VISIBLE}`]: "${" + ViewerParameters.CapTypeIs3 + "}",
 
-              "Text.position": "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
+              [`Text.${Parameter.POSITION}`]: "( 0, ${" + ViewerParameters.CapPosY + "}, 0 )",
             },
             elements: {
               Bin60: ["__root__.bin.30_40_60"],
@@ -171,7 +172,8 @@ export function createSpec() {
 
           [VariantNames.Bin_Graphics]: {
             parameters: {
-              'GraphicPanel.position': '( 0, ${' + ViewerParameters.GraphicPosY + '}, ${' + ViewerParameters.GraphicPosZ + '} )',
+              [`GraphicPanel.${Parameter.POSITION}`]:
+                "( 0, ${" + ViewerParameters.GraphicPosY + "}, ${" + ViewerParameters.GraphicPosZ + "} )",
             },
             elements: {
               GraphicPanel: {
