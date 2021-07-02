@@ -89,7 +89,7 @@ function _setCameraPos(viewer, animate) {
 /**
  * @param {Viewer} viewer
  */
- async function _updateGraphic(viewer) {
+async function _updateGraphic(viewer) {
   viewer.variantInstances.show(InstanceNames.Bin_Graphics_Instance, false);
 
   const svgSrc = CtrlUtils.getGraphicViewSvgSrc(CtrlNames.JS_UploadGraphicView);
