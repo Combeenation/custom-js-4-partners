@@ -1,6 +1,5 @@
-import { Color4 } from '@combeenation/3d-viewer';
-import { CmpUtils } from '@combeenation/custom-js-utils';
-import { CmpNames, InstanceNames, ViewerParameters, CameraPlacements, Animations } from './constants';
+import { CmpUtils, CtrlUtils } from '@combeenation/custom-js-utils';
+import { CmpNames, InstanceNames, ViewerParameters, CameraPlacements, Animations, CtrlNames } from './constants';
 
 /** @type {ViewerParamsRecord} */
 let _prevViewerParams = undefined;
@@ -15,6 +14,8 @@ export function initSceneManager(viewer) {
 
   CmpUtils.onCmpValueChanged(CmpNames.ViewerParams, () => _updateViewerParams(viewer), true);
   CmpUtils.onCmpValueChanged(CmpNames.Dimensions, () => _changeVariant(viewer), true);
+  CmpUtils.onCmpValueChanged(CmpNames.UploadGraphics3dView, () => _updateGraphic(viewer), false);
+  CmpUtils.onCmpValueChanged(CmpNames.UserImageVisible, () => _toggleGraphic(viewer), false);
 }
 
 /**
@@ -23,7 +24,7 @@ export function initSceneManager(viewer) {
  * @param {Viewer} viewer
  */
 function _updateViewerParams(viewer) {
-  const newParams = /** @type{ViewerParamsRecord} */ (CmpUtils.getRecordCmpValue(CmpNames.ViewerParams));
+  const newParams = /** @type {ViewerParamsRecord} */ (CmpUtils.getRecordCmpValue(CmpNames.ViewerParams));
 
   viewer.variantInstances.commitParameters(
     {
@@ -35,6 +36,8 @@ function _updateViewerParams(viewer) {
       [ViewerParameters.CapTypeIs1]: newParams.CapTypeIs1,
       [ViewerParameters.CapTypeIs2]: newParams.CapTypeIs2,
       [ViewerParameters.CapTypeIs3]: newParams.CapTypeIs3,
+      [ViewerParameters.GraphicPosZ]: newParams.GraphicPosZ,
+      [ViewerParameters.GraphicPosY]: newParams.GraphicPosY,
     },
     false
   );
@@ -50,10 +53,11 @@ function _updateViewerParams(viewer) {
 /**
  * @param {Viewer} viewer
  */
-function _changeVariant(viewer) {
-  const dimension = /** @type{DimensionsRecord} */ (CmpUtils.getRecordCmpValue(CmpNames.Dimensions));
+async function _changeVariant(viewer) {
+  const dimension = /** @type {DimensionsRecord} */ (CmpUtils.getRecordCmpValue(CmpNames.Dimensions));
   const variantInstanceName = 1 === dimension.Key ? InstanceNames.Bin_20_30_Instance : InstanceNames.Bin_30_40_Instance;
-  viewer.variantInstances.show(variantInstanceName, true);
+  await viewer.variantInstances.show(variantInstanceName, true);
+  _toggleGraphic(viewer);
 }
 
 /**
@@ -62,8 +66,6 @@ function _changeVariant(viewer) {
  * @param {Viewer} viewer
  */
 function _setSceneSettings(viewer) {
-  viewer.scene.clearColor = new Color4(0, 0, 0, 0);
-
   const camera = /** @type {ArcRotateCamera} */ (viewer.scene.cameras[0]);
   camera.wheelPrecision = 100;
   camera.panningSensibility = 2400;
@@ -82,4 +84,30 @@ function _setCameraPos(viewer, animate) {
   const isHeight100 = CmpUtils.getRecordCmpKeyValue(CmpNames.Bin3DHeight) === '100';
   const camPlacementName = isHeight100 ? CameraPlacements.Height100 : CameraPlacements.Height60;
   viewer.moveActiveCameraTo(camPlacementName, Animations.DefaultCameraAnimation);
+}
+
+/**
+ * @param {Viewer} viewer
+ */
+async function _updateGraphic(viewer) {
+  viewer.variantInstances.show(InstanceNames.Bin_Graphics_Instance, false);
+
+  const svgSrc = CtrlUtils.getGraphicViewSvgSrc(CtrlNames.JS_UploadGraphicView);
+  const graphicsInstance = await viewer.variantInstances.get(InstanceNames.Bin_Graphics_Instance);
+  const graphicsPanelEl = await graphicsInstance.variant.getElement('GraphicPanel');
+  graphicsPanelEl.drawPaintableFromSvg('LogoPaintable', svgSrc);
+}
+
+/**
+ * @param {Viewer} viewer
+ */
+async function _toggleGraphic(viewer) {
+  const show = CmpUtils.getLogicCmpValue(CmpNames.UserImageVisible);
+  const graphicsVariant = (await viewer.variantInstances.get(InstanceNames.Bin_Graphics_Instance)).variant;
+
+  if (show) {
+    graphicsVariant.show();
+  } else {
+    graphicsVariant.hide();
+  }
 }

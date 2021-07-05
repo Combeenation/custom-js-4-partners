@@ -1,13 +1,13 @@
-import { CtrlUtils } from "@combeenation/custom-js-utils";
-import { Viewer } from "@combeenation/3d-viewer";
-import { createSpec } from "./spec";
-import { initSceneManager } from "./scene-mgr";
-import { CtrlNames } from "./constants";
+import { CtrlUtils } from '@combeenation/custom-js-utils';
+import { Viewer } from '@combeenation/3d-viewer';
+import { createSpec } from './spec';
+import { initSceneManager } from './scene-mgr';
+import { CtrlNames } from './constants';
 
 export async function bootstrapViewer() {
   console.info(`Bootstrapping viewer v${Viewer.version}`);
 
-  const $JQCanvas = $(CtrlUtils.getLabel(CtrlNames.JS_3dViewerLabel).el.dom).find("canvas");
+  const $JQCanvas = $(CtrlUtils.getLabel(CtrlNames.JS_3dViewerLabel).el.dom).find('canvas');
   const canvas = /** @type {HTMLCanvasElement} */ (/** @type {unknown} */ ($JQCanvas.get(0)));
   const spec = createSpec();
   const viewer = new Viewer(canvas, spec);
