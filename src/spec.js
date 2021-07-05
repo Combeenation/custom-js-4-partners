@@ -112,7 +112,7 @@ export function createSpec() {
           [VariantNames.Bin_20_30]: {
             parameters: {
               [`Bin60.${Parameter.VISIBLE}`]: '${' + ViewerParameters.HeightIs60 + '}',
-              [`Bin100${Parameter.VISIBLE}`]: '${' + ViewerParameters.HeightIs100 + '}',
+              [`Bin100.${Parameter.VISIBLE}`]: '${' + ViewerParameters.HeightIs100 + '}',
               [`Bin60.${Parameter.MATERIAL_COLOR}`]: '${' + ViewerParameters.BottomColor + '}',
               [`Bin100.${Parameter.MATERIAL_COLOR}`]: '${' + ViewerParameters.BottomColor + '}',
 
@@ -124,9 +124,9 @@ export function createSpec() {
               [`CapType2.${Parameter.MATERIAL_COLOR}`]: '${' + ViewerParameters.TopColor + '}',
               [`CapType3.${Parameter.MATERIAL_COLOR}`]: '${' + ViewerParameters.TopColor + '}',
 
-              [`CapType1${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs1 + '}',
-              [`CapType2${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs2 + '}',
-              [`CapType3${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs3 + '}',
+              [`CapType1.${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs1 + '}',
+              [`CapType2.${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs2 + '}',
+              [`CapType3.${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs3 + '}',
 
               [`Text.${Parameter.POSITION}`]: '( 0, ${' + ViewerParameters.CapPosY + '}, 0 )',
             },
@@ -141,8 +141,8 @@ export function createSpec() {
           },
           [VariantNames.Bin_30_40]: {
             parameters: {
-              [`Bin60${Parameter.VISIBLE}`]: '${' + ViewerParameters.HeightIs60 + '}',
-              [`Bin100${Parameter.VISIBLE}`]: '${' + ViewerParameters.HeightIs100 + '}',
+              [`Bin60.${Parameter.VISIBLE}`]: '${' + ViewerParameters.HeightIs60 + '}',
+              [`Bin100.${Parameter.VISIBLE}`]: '${' + ViewerParameters.HeightIs100 + '}',
               [`Bin60.${Parameter.MATERIAL_COLOR}`]: '${' + ViewerParameters.BottomColor + '}',
               [`Bin100.${Parameter.MATERIAL_COLOR}`]: '${' + ViewerParameters.BottomColor + '}',
 
@@ -154,9 +154,9 @@ export function createSpec() {
               [`CapType2.${Parameter.MATERIAL_COLOR}`]: '${' + ViewerParameters.TopColor + '}',
               [`CapType3.${Parameter.MATERIAL_COLOR}`]: '${' + ViewerParameters.TopColor + '}',
 
-              [`CapType1${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs1 + '}',
-              [`CapType2${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs2 + '}',
-              [`CapType3${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs3 + '}',
+              [`CapType1.${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs1 + '}',
+              [`CapType2.${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs2 + '}',
+              [`CapType3.${Parameter.VISIBLE}`]: '${' + ViewerParameters.CapTypeIs3 + '}',
 
               [`Text.${Parameter.POSITION}`]: '( 0, ${' + ViewerParameters.CapPosY + '}, 0 )',
             },
