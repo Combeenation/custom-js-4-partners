@@ -1,6 +1,6 @@
 const cwd = process.cwd();
 const path = require('path');
-const webpack = require(require.resolve('webpack', { paths: [cwd] }));
+const webpack = require('webpack');
 const HiveInterfaceToObjectPlugin = require('@combeenation/webpack-hive-itf-to-obj-plugin');
 
 /**
