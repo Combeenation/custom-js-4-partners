@@ -1,5 +1,7 @@
 const cwd = process.cwd();
 const path = require('path');
+const webpack = require(require.resolve('webpack', { paths: [cwd] }));
+const HiveInterfaceToObjectPlugin = require('@combeenation/webpack-hive-itf-to-obj-plugin');
 
 /**
  * @return {webpack.Configuration}
@@ -16,7 +18,11 @@ module.exports = function createProductionCfgn() {
       'whatwg-fetch',
       './src/index.js',
     ],
-    plugins: [],
+    plugins: [
+      new HiveInterfaceToObjectPlugin(),
+      // watchOptions.ignored not working due to backslashes in the path (Windows)
+      new webpack.WatchIgnorePlugin([ /node_modules/, /typings-generated-objs/ ])
+    ],
     performance: {
       maxEntrypointSize: 800 * 1000,
       maxAssetSize: 800 * 1000,
