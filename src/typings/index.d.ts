@@ -1,22 +1,9 @@
-interface DimensionsRecord {
-  Key: number;
-  Length: number;
-  Width: number;
-  Area: number;
-  DisplayText: string;
-  DimensionModelNode: string;
-}
-
-interface ViewerParamsRecord {
-  Key: number;
-  TopColor: string;
-  BottomColor: string;
-  HeightIs60: boolean;
-  HeightIs100: boolean;
-  CapPosY: number;
-  CapTypeIs1: boolean;
-  CapTypeIs2: boolean;
-  CapTypeIs3: boolean;
-  GraphicPosZ: number;
-  GraphicPosY: number;
+/**
+ * Define typings here which are not related to any Hive Component
+ * E.g.: An element that holds temporary data during a Drag-Event
+ */
+interface DragElement {
+  RecordRef: number;
+  domEl: Element;
+  Size: number[];
 }
