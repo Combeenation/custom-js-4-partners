@@ -1,7 +1,9 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const createProductionCfgn = require('./webpack.common');
 
-const prodCfgn = createProductionCfgn();
+const mainFileName = require('./package.json').main;
+const prodCfgn = createProductionCfgn(mainFileName);
+
 const devCfgnOverrides = {
   mode: 'development',
   performance: {
@@ -14,4 +16,6 @@ const devCfgnOverrides = {
   }
 };
 
-module.exports = merge(prodCfgn, devCfgnOverrides);
+module.exports = merge(prodCfgn, devCfgnOverrides, {
+  // Add project specific production configs & overrides here...
+});
