@@ -4,11 +4,11 @@
     "target": "es5",
     "lib": ["dom", "es5", "scripthost", "es2018"],
     "checkJs": true,
-    "allowJs": true,
     "outDir": "./dist",
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "downlevelIteration": true
+    "strict": false,
+    "downlevelIteration": true,
+    "isolatedModules": false,
+    "allowUmdGlobalAccess": true
   },
   "include": ["./src/**/*"]
 }
