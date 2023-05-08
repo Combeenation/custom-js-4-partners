@@ -1,5 +1,5 @@
 {
-  "name": "produkter-customjs",
+  "name": "cfgr-customjs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,8 @@
     "watch": "npm run watch-dev",
     "watch-dev": "node ./.run-scripts/serve-customjs.js --cfgfile=webpack.dev.js | webpack --progress --config webpack.dev.js --watch",
     "watch-prod": "node ./.run-scripts/serve-customjs.js | webpack --progress --config webpack.prod.js --watch",
-    "format-code": "prettier --write \"src\""
+    "lint": "eslint src",
+    "format": "prettier --write src"
   },
   "author": "",
   "devDependencies": {
@@ -38,7 +39,6 @@
     "webpack-notifier": "^1.15.0"
   },
   "dependencies": {
-    "@combeenation/3d-viewer": "^9.0.0",
     "@combeenation/custom-js-utils": "^7.1.1",
     "ts-interface-checker": "^1.0.2",
     "whatwg-fetch": "^3.6.2"

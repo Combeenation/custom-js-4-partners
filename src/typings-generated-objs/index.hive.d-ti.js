@@ -12,22 +12,7 @@ export const DimensionsRecord = t.iface([], {
   "DimensionModelNode": "string",
 });
 
-export const ViewerParamsRecord = t.iface([], {
-  "Key": "number",
-  "TopColor": "string",
-  "BottomColor": "string",
-  "HeightIs60": "boolean",
-  "HeightIs100": "boolean",
-  "CapPosY": "number",
-  "CapTypeIs1": "boolean",
-  "CapTypeIs2": "boolean",
-  "CapTypeIs3": "boolean",
-  "GraphicPosZ": "number",
-  "GraphicPosY": "number",
-});
-
 const exportedTypeSuite = {
   DimensionsRecord,
-  ViewerParamsRecord,
 };
 export default exportedTypeSuite;
