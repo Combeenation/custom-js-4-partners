@@ -2,45 +2,46 @@
   "extends": "eslint:recommended",
   "env": {
     "browser": true,
-    "jquery": true,
-    "es6": true
+    "es2021": true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 8,
     "sourceType": "module",
-    "ecmaFeatures": {
-      "modules": true,
-      "experimentalObjectRestSpread": true
-    }
+    "requireConfigFile": false
   },
   "plugins": ["prettier"],
   "rules": {
+    // formatting rules from prettier plugin, currently disabled
     "prettier/prettier": "off",
-    "no-unused-vars": ["warn", { "vars": "all", "args": "none" }],
+
+    // formatting rules
     "no-mixed-spaces-and-tabs": "off",
-    "no-use-before-define": ["error", { "functions": false }],
-    "no-debugger": "warn",
-    "no-console": "off",
-    "block-scoped-var": "error",
     "curly": ["error", "multi-line"],
     "no-trailing-spaces": ["warn", { "skipBlankLines": true, "ignoreComments": true }],
-    "one-var": ["error", { "initialized": "never" }],
+
+    // variable decleration
     "no-var": "warn",
+    "one-var": ["error", { "initialized": "never" }],
+    "block-scoped-var": "error",
+
+    // variable usage
+    "no-undef": "off",
+    "no-unused-vars": ["warn", { "vars": "all", "args": "none" }],
+    "no-use-before-define": ["error", { "functions": false }],
+
+    // misc rules
+    "no-debugger": "warn",
+
+    // deactivate rules that don't fit for us
     "no-prototype-builtins": "off",
     "no-async-promise-executor": "off"
-  },
-  "globals": {
-    "Cbn": true,
-    "Ext": true,
-    "SDVApp": true,
-    "Uint8Array": true
   },
   "overrides": [
     {
       "files": ["**/typings/**"],
       "rules": {
-        "no-unused-vars": "off"
+        "no-unused-vars": "off",
+        "no-use-before-define": "off"
       }
     }
   ]
