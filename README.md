@@ -15,7 +15,7 @@ Info about commonly used abbreviations in this project:
 
 - Create resource cmp of type `JavaScript` named `CustomJS`
   - Upload a script which should be executed on cfgr startup and name the resource `cfgr`.  
-    The naming is important here. Resources named otherwhise won't be exeucted on startup.
+    The naming is important here. Resources named otherwise won't be exeucted on startup.
 - Create value cmp named `CustomJSCmps` with the following initial content:
 
   ```

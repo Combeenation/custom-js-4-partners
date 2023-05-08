@@ -3,7 +3,7 @@
  */
 import * as t from "ts-interface-checker";
 
-export const DimensionsRecord = t.iface([], {
+export const ProductRecord = t.iface([], {
   "Key": "number",
   "Length": "number",
   "Width": "number",
@@ -13,6 +13,6 @@ export const DimensionsRecord = t.iface([], {
 });
 
 const exportedTypeSuite = {
-  DimensionsRecord,
+  ProductRecord,
 };
 export default exportedTypeSuite;

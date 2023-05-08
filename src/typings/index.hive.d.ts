@@ -5,7 +5,7 @@
  */
 // const selRecord = /** @type {ProductRecord} */ (CmpUtils.getRecordCmpValue(Constants.CmpNames.Products));
 
-interface DimensionsRecord {
+interface ProductRecord {
   Key: number;
   Length: number;
   Width: number;
