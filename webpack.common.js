@@ -18,7 +18,7 @@ module.exports = function createProductionCfgn(mainFileName) {
     devtool: "source-map",
     output: {
       path: path.resolve(cwd, "dist"),
-      filename: mainFileName.replace(".js", ".build.min.js"),
+      filename: "cfgr.js",
     },
     entry: ["whatwg-fetch", "./src/" + mainFileName],
     plugins: [

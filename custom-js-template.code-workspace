@@ -4,5 +4,11 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+  "settings": {
+    "editor.rulers": [120],
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "extensions": {
+    "recommendations": ["esbenp.prettier-vscode"]
+  }
 }

@@ -7,7 +7,7 @@
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack --config webpack.dev.js",
     "build": "npm run build-prod",
-    "watch": "npm run watch-dev",
+    "dev": "npm run watch-dev",
     "watch-dev": "node ./.run-scripts/serve-customjs.js --cfgfile=webpack.dev.js | webpack --config webpack.dev.js --watch",
     "watch-prod": "node ./.run-scripts/serve-customjs.js | webpack --config webpack.prod.js --watch",
     "lint": "eslint src",
